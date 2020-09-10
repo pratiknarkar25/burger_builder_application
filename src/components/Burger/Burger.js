@@ -15,14 +15,14 @@ const Burger = props => {
     })
 
     // Flatten the array or Reduce to a single array instead of [],[],[],[]
-    // myIngredients = myIngredients.reduce((arr, el) => { 
-    //     return arr.concat(el)
-    // }, [])
-    // console.log('myIngredients -------------', myIngredients);
-    // if(myIngredients.length === 0)
-    // {
-    //     myIngredients = <p>Please add ingredients here!!</p>
-    // }
+    myIngredients = myIngredients.reduce((arr, el) => { 
+        return arr.concat(el)
+    }, [])
+    console.log('myIngredients -------------', myIngredients);
+    if(myIngredients.length === 0)
+    {
+        myIngredients = <p>Please add ingredients here!!</p>
+    }
 
     return(
         <div className={classes.Burger}>
