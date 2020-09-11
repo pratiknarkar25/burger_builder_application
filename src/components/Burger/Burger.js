@@ -3,6 +3,7 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 const Burger = props => {
+    console.log('Object.keys(props.ingredients) -----------',Object.keys(props.ingredients))
     let myIngredients = Object.keys(props.ingredients)
         .map( (itemKey) => 
         {
