@@ -42,6 +42,10 @@ class BurgerBuilder extends Component{
 
   removeIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type]
+    // instead of disabling, just want no action then use below code
+    // if(oldCount <= 0){
+    //   return
+    // }
     const updatedCount = oldCount - 1
     const updatedIngredients = {
       ...this.state.ingredients
@@ -54,6 +58,12 @@ class BurgerBuilder extends Component{
   }
 
   render(){
+    let _disabledIngredients = {}
+
+    for (let key in this.state.ingredients){
+      _disabledIngredients[key] = (this.state.ingredients[key] <= 0)
+    }
+    {console.log('_disabledIngredients ---',_disabledIngredients)}
     return(
         <Aux>
           <Burger ingredients={this.state.ingredients}/>
@@ -62,6 +72,7 @@ class BurgerBuilder extends Component{
               className={classes.BuiltControl}
               added={this.addIngredientHandler}
               removed={this.removeIngredientHandler}
+              disabledIngredients = {_disabledIngredients}
             />
           </div>    
         </Aux>
